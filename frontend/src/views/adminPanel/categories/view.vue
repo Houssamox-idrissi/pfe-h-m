@@ -14,7 +14,7 @@
         <tr v-for="(category, index) in categories" :key="index">
           <td>{{ category.name }}</td>
           <td>
-            <img :src="category.image" alt="nothing!" class="img-fluid" style="max-width: 100px;">
+            <img :src="'http://127.0.0.1:8000/storage'+category.image.replace('public','')" alt="nothing!" class="img-fluid" style="max-width: 100px;">
           </td>
           <td>
             <RouterLink :to="{ path: '/categories/' + category.id + '/edit' }" class="btn btn-success mx-2">Edit
