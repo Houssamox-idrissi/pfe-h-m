@@ -14,7 +14,7 @@
         <tr v-for="(brand, index) in brands" :key="index">
           <td>{{ brand.name }}</td>
           <td>
-            <img :src="brand.image" class="img-fluid" style="max-width: 100px;">
+            <img :src="'http://127.0.0.1:8000/storage'+brand.image.replace('public','')" class="img-fluid" style="max-width: 100px;">
           </td>
           <td>
             <router-link :to="{ path: '/admin/brands/' + brand.id + '/edit' }" class="btn btn-success mx-2">Edit</router-link>

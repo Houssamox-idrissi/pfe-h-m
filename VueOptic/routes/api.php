@@ -1,9 +1,11 @@
 
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EyeexamController;
 use App\Http\Controllers\GlasseController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Http\Request;
@@ -24,6 +26,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware('auth.jwt')->group(function () {
+    Route::post('/appointments', [EyeexamController::class,'store']);
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
@@ -32,7 +35,7 @@ Route::middleware('auth.jwt')->group(function () {
 Route::get('/categories', [CategoryController::class, 'homecategory']);
 Route::post('/categories', [CategoryController::class, 'storecat']);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'editcat']);
-Route::put('/categories/{id}/update',[CategoryController::class,'updateCategory']);
+Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory']);
 Route::delete('/categories/{id}/delete', [CategoryController::class, 'deletecat']);
 
 // Brand
@@ -56,5 +59,3 @@ Route::post('/glasses', [GlasseController::class, 'storeglasses']);
 Route::get('/glasses/{id}/edit', [GlasseController::class, 'editglasses']);
 Route::put('/glasses/{id}/update', [GlasseController::class, 'updateglasses']);
 Route::delete('/glasses/{id}/delete', [GlasseController::class, 'deleteglasses']);
-
-

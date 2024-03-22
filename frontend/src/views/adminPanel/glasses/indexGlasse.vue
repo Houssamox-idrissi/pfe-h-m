@@ -24,7 +24,7 @@
             <td>{{ glasses.category.name }}</td>
             <td>{{ glasses.type.name }}</td>
             <td>
-              <img :src="'http://127.0.0.1:8000/'+glasses.image" alt="Glasses Image" class="img-fluid" style="max-width: 100px;">
+              <img :src="'http://127.0.0.1:8000/'+glasses.image.replace('public','')" alt="Glasses Image" class="img-fluid" style="max-width: 100px;">
             </td>
             <td>
               <router-link :to="{ path: '/glasses/' + glasses.id + '/edit' }" class="btn btn-success mx-2">Edit</router-link>

@@ -14,7 +14,7 @@
         <tr v-for="(type, index) in types" :key="index">
           <td>{{ type.name }}</td>
           <td>
-            <img :src="type.image" alt="nothing!" class="img-fluid" style="max-width: 100px;">
+            <img :src="'http://127.0.0.1:8000/storage'+type.image.replace('public','')" alt="nothing!" class="img-fluid" style="max-width: 100px;">
           </td>
           <td>
             <RouterLink :to="{ path: '/types/' + type.id + '/edit' }" class="btn btn-success mx-2">Edit

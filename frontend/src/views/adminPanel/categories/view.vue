@@ -19,7 +19,7 @@
           <td>
             <RouterLink :to="{ path: '/categories/' + category.id + '/edit' }" class="btn btn-success mx-2">Edit
             </RouterLink>
-            <button type="button" @click="deleteCat(category.id)" class="btn btn-danger mx-2">Delete</button>
+            <button type="submit" @click="deleteCat(category.id)" class="btn btn-success  mx-2">Delete</button>
           </td>
         </tr>
       </tbody>
