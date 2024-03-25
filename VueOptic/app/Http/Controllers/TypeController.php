@@ -21,7 +21,7 @@ class TypeController extends Controller
     public function storeType(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:15',
+            'name' => 'required|max:20',
             'image' => 'required',
         ]);
         
@@ -43,8 +43,8 @@ class TypeController extends Controller
     public function updateType(Request $request, Type $id)
     {
         $request->validate([
-            'name' => 'required|max:15',
-            'image' => 'required'
+            'name' => 'required|max:25',
+            'image' => 'required',
         ]);
         
         $image = $request->file('image')->store('public/type');

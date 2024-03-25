@@ -15,11 +15,11 @@
                                     sidenav-close></i>
                                 <router-link to="/client/home"
                                     class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700">
-                                    <img src="./assets/stoore.png"
+                                    <img src="./img/stoore.png"
                                         class="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8"
                                         alt="main_logo" />
                                     <span
-                                        class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">E-OPTIC</span>
+                                        class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">E-Optic</span>
                                 </router-link>
                             </div>
                             <hr
@@ -150,3 +150,7 @@
     padding: 30px;
 }
 </style>
+
+<script>
+
+</script>

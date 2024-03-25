@@ -1,8 +1,9 @@
-import './assets/main.css';
-import './assets/dashbord.css';
+import './assets/css/main.css';
+import './assets/css/dashbord.css';
 import './assets/css/nucleo-icons.css';
-import './assets/css/perfect-scrollbar.css';
-import './assets/css/tooltips.css';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 
 
 

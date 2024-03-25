@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto">
+      <div class="mx-auto col-md-6">
         <h1>Update Type</h1>
         <form @submit.prevent="updateType">
           <div class="mb-3">

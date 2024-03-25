@@ -70,7 +70,6 @@ class GlasseController extends Controller
 
     public function deleteglasses(Glasse $id)
     {
-        $id->brand->delete();
         $id->delete();
         return response()->json(null, 204);
     }

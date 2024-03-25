@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-gray-800 pt-16 pb-12 border-t border-gray-100">
+    <footer class="pt-16 pb-12 bg-gray-800 border-t border-gray-100 bg-slate-850">
         <div class="container grid grid-cols-1 ">
             <div class="col-span-1 space-y-4">
                 <div class="flex space-x-5">
@@ -15,51 +15,51 @@
                 </div>
             </div>
 
-            <div class="col-span-2 grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 col-span-2 gap-4">
                 <div class="grid grid-cols-2 gap-4 md:gap-8">
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                             Solutions</h3>
                         <div class="mt-4 space-y-4">
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Marketing</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Analitycs</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Commerce</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Insights</a>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                             Support</h3>
                         <div class="mt-4 space-y-4">
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
-                            <!-- <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a> -->
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Pricing</a>
+                            <!-- <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Documentation</a> -->
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Guides</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">API
                                 Status</a>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                             Solutions</h3>
                         <div class="mt-4 space-y-4">
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Marketing</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Analitycs</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Commerce</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Insights</a>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                             Support</h3>
                         <div class="mt-4 space-y-4">
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
-                            <!-- <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a> -->
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Pricing</a>
+                            <!-- <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Documentation</a> -->
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">Guides</a>
+                            <a href="#" class="block text-base text-gray-500 hover:text-gray-900">API
                                 Status</a>
                         </div>
                     </div>
@@ -70,11 +70,11 @@
     <!-- ./footer -->
 
     <!-- copyright -->
-    <div class="bg-gray-800 py-4">
+    <div class="py-4 bg-slate-850">
         <div class="container flex items-center justify-between">
             <p class="text-white">&copy; TailCommerce - All Right Reserved</p>
             <div>
-                <img src="" alt="methods" class="h-5">
+                <img src="./method/methods.png" alt="methods" class="h-5">
             </div>
         </div>
     </div>

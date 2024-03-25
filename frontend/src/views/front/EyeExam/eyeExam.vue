@@ -3,7 +3,8 @@
   <br><br><br>
   
   <form @submit.prevent="submitAppointment" class="bg-white shadow-md rounded px-4 pt-4 pb-6 mb-2 flex flex-col my-2">
-    <h1 class="text-center mb-8" style=" font-weight: bold; line-height: 1; letter-spacing: -0.025em; color: black;">
+    <h1 class="text-4xl text-black font-medium mb-4 capitalize"
+            style="font-family: 'Arial Black', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.4);text-align: center;">
     Optician Appointment
   </h1>
           <br>

@@ -42,6 +42,7 @@ export default {
       axios.get(`http://127.0.0.1:8000/api/brands/${BrandId}/edit`)
         .then(res => {
           this.model.name = res.data.name;
+          
           // Optionally, set image if it's stored in the backend and needs to be displayed
         })
         .catch(error => {

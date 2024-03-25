@@ -11,7 +11,7 @@ class Type extends Model
     
     protected $fillable = [
         'image',
-        'name'
+        'name',
     ];
 
     public function glasses()  {

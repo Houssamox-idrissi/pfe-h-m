@@ -130,6 +130,7 @@ export default {
         this.model.brand_id = null;
         this.model.type_id = null;
         this.model.category_id = null;
+        this.$router.push('/admin/glasses')
       })
       .catch(error => {
         console.error('Error creating glasses:', error);

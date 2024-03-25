@@ -47,6 +47,7 @@
           console.log(res.data);
           this.model.name = '';
           this.model.image = null;
+          this.$router.push('/admin/brands');
         })
         .catch(error => {
           console.error('Error creating Brand:', error);

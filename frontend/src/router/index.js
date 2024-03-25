@@ -3,7 +3,7 @@ import AdminLayout from '../layouts/Admin.vue'
 import ClientLayout from '../layouts/Admin.vue'
 
 // client
-import HomeClient from '../views/front/clientHome.vue'
+import HomeClient from '../views/front/home/clientHome.vue'
 import AuthClient from '../views/front/auth/register.vue'
 import loginClient from '../views/front/auth/login.vue'
 

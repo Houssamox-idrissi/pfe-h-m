@@ -4,14 +4,14 @@
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <br><br><br>
       <div
-        class=" px-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        class="px-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1
-            style="font-family: 'Franklin Gothic', sans-serif; color: black; font-weight: bold; line-height: 1.25; letter-spacing: -0.025em;">
-            Create an account
+          class=" text-center text-3xl text-black capitalize font-lighter">
+            Sign up
           </h1>
           <br>
-          <form @submit.prevent="register" class=" space-y-4 md:space-y-6">
+          <form @submit.prevent="register" class="space-y-4 md:space-y-6">
             <input type="text" v-model="name" placeholder="Name" required
               class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                <br>
@@ -37,7 +37,7 @@
                 class="text-indigo-500">Log in</router-link>
             </p>
             <button type="submit"
-              class="py-2 px-4 rounded-lg text-white hover:bg-green-500 focus:outline-none focus:bg-green-500 transition duration-300 btn btn-info">Sign
+              class="px-4 py-2 text-white transition duration-300 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-500 btn btn-info">Sign
               up</button>
           </form>
         </div>
@@ -84,3 +84,10 @@ export default {
   }
 };
 </script>
+
+<style>
+.font-lighter {
+  font-family: '', sans-rif;
+  font-weight: 600;
+}
+</style>

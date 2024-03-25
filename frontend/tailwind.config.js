@@ -1,12 +1,16 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: [],
+  
+  content: ["./src/**/*.{html,js}"],
+
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Graphik", "sans-serif"],
+    },
+    extend: {
+      colors: {
+        midnight: "#121063",
+      },
+    },
   },
-  variants: {},
   plugins: [],
 }
