@@ -1,18 +1,13 @@
 
 <?php
 
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EyeexamController;
 use App\Http\Controllers\GlasseController;
-use App\Http\Controllers\LenseController;
-use App\Http\Controllers\LensesController;
-use App\Http\Controllers\LensPerformanceController;
-use App\Http\Controllers\LensThicknessController;
-use App\Http\Controllers\LensTypeController;
 use App\Http\Controllers\TypeController;
-use App\Http\Controllers\VisionNeedController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +25,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/appointments', [EyeexamController::class,'HomeExam']);
 Route::delete('/appointments/{appointmentId}/delete', [EyeexamController::class,'destroy']);
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/admin/login', [AdminAuthController::class, 'login']);
+Route::post('/admin/register', [AdminAuthController::class, 'register']);
 
 Route::middleware('auth.jwt')->group(function () {
     Route::post('/appointments', [EyeexamController::class,'store']);
@@ -39,12 +38,16 @@ Route::middleware('auth.jwt')->group(function () {
         return $request->user();
     });
 });
-// Category
+
+Route::middleware(['admin'])->group(function () {
+    // Category
 Route::get('/categories', [CategoryController::class, 'homecategory']);
 Route::post('/categories', [CategoryController::class, 'storecat']);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'editcat']);
 Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory']);
 Route::delete('/categories/{id}/delete', [CategoryController::class, 'deletecat']);
+});
+
 
 // Brand
 Route::get('/brand/form', [BrandController::class, 'brandForm']);

@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Admin;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
+class AdminAuthController extends Controller
 {
     public function login(Request $request)
     {
-        $condition = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
-        if (!$token = JWTAuth::attempt($condition)) {
+        if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -21,28 +20,34 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:15',
-            'email' => 'required|string|email|max:40|unique:users',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:admins',
             'password' => 'required|string|min:8',
         ]);
 
-        User::create([
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $admin = Admin::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
-        return response()->json(['message' => 'User registered successfully'], 201);
+        $token = JWTAuth::fromUser($admin);
+
+        return $this->respondWithToken($token);
     }
 
     protected function respondWithToken($token)
     {
         return response()->json([
-            'token' => $token,
+            'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => JWTAuth::factory()->getTTL() * 60
+            
         ]);
     }
-    
 }

@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AdminLayout from '../layouts/Admin.vue'
 import ClientLayout from '../layouts/Admin.vue'
 
+
+import AdminHomeView from '../views/adminPanel/home/home.vue'
 // client
 import HomeClient from '../views/front/home/clientHome.vue'
 import AuthClient from '../views/front/auth/register.vue'
@@ -49,15 +51,28 @@ import armaniClient from '@/views/front/BrandsGlasses/armani.vue'
 // lenses
 import PaymentClient from '@/views/front/Lenses/payment/payment.vue'
 import DetailClient from '@/views/front/GlaDetail/glassesDet.vue'
+import FirstPageView from '../views/adminLogin/login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-  //  Admin
+
+    {
+      path: '/admin',
+      name: 'first',
+      component: FirstPageView
+    },
+       //  Admin
     {
       path: '/admin',
       component: AdminLayout,
       children: [
+        {
+          path: 'Adminhome',
+          name: 'AdminHome',
+          component: AdminHomeView
+        },
+        
         // Category
         {
           path: 'categories',
@@ -129,7 +144,7 @@ const router = createRouter({
         },
 
 
-      
+
       ],
       meta: { layout: 'admin' }
     },
@@ -141,100 +156,100 @@ const router = createRouter({
       children: [
         {
           path: 'register',
-          name:'register',
-          component:AuthClient
+          name: 'register',
+          component: AuthClient
         },
         {
           path: 'login',
-          name:'login',
-          component:loginClient
+          name: 'login',
+          component: loginClient
         },
         {
           path: 'home',
-          name:'home',
-          component:HomeClient
+          name: 'home',
+          component: HomeClient
         },
 
 
         // Eyeglasses
         {
           path: 'eyeglasses',
-          name:'eyeglasses',
-          component:EyeglassesClient
+          name: 'eyeglasses',
+          component: EyeglassesClient
         },
         {
           path: 'menEyeglasses',
-          name:'menEyeglasses',
-          component:MenEyeglassesClient
+          name: 'menEyeglasses',
+          component: MenEyeglassesClient
         },
         {
           path: 'womenEyeglasses',
-          name:'womenEyeglasses',
-          component:WomenEyeglassesClient
+          name: 'womenEyeglasses',
+          component: WomenEyeglassesClient
         },
         {
           path: 'kidsEyeglasses',
-          name:'kidsEyeglasses',
-          component:KidsEyeglassesClient
+          name: 'kidsEyeglasses',
+          component: KidsEyeglassesClient
         },
         // Sunglasses
         {
           path: 'sunglasses',
-          name:'sunglasses',
-          component:SunglassesClient
+          name: 'sunglasses',
+          component: SunglassesClient
         },
         {
           path: 'WomenSunglasses',
-          name:'WomenSunglasses',
-          component:WomenSunglassesClient
+          name: 'WomenSunglasses',
+          component: WomenSunglassesClient
         },
         {
           path: 'MenSunglasses',
-          name:'MenSunglasses',
-          component:MenSunglassesClient
+          name: 'MenSunglasses',
+          component: MenSunglassesClient
         },
         {
           path: 'kidsSunglasses',
-          name:'kidsSunglasses',
-          component:KidsSunglassesClient
+          name: 'kidsSunglasses',
+          component: KidsSunglassesClient
         },
 
         // Brands
         {
           path: 'allBrands',
-          name:'allBrands',
-          component:allBrandsClient
+          name: 'allBrands',
+          component: allBrandsClient
         },
         {
           path: 'prada',
-          name:'prada',
-          component:pradaClient
+          name: 'prada',
+          component: pradaClient
         },
         {
           path: 'rayBan',
-          name:'rayBan',
-          component:rayBanClient
+          name: 'rayBan',
+          component: rayBanClient
         },
         {
           path: 'armani',
-          name:'armani',
-          component:armaniClient
+          name: 'armani',
+          component: armaniClient
         },
         // 
         {
           path: 'eyeExam',
-          name:'eyeExam',
-          component:ExamClient
+          name: 'eyeExam',
+          component: ExamClient
         },
         {
-          path:'glasses/:id/details',
-          name : 'details',
-          component : DetailClient
+          path: 'glasses/:id/details',
+          name: 'details',
+          component: DetailClient
         },
         {
-          path:'PaymentFrame',
-          name : 'Payment',
-          component : PaymentClient
+          path: 'PaymentFrame',
+          name: 'Payment',
+          component: PaymentClient
         },
 
 
