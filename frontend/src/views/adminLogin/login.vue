@@ -4,7 +4,7 @@
         <br><br><br>
         <div class="px-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-center text-3xl text-black capitalize font-lighter">Login</h1>
+            <h1 class="text-center text-3xl text-black capitalize font-lighter">Admin account </h1>
             <br>
             <form @submit.prevent="login" class="space-y-4 md:space-y-6">
               <input type="email" v-model="email" class="bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="E-mail address" required>
@@ -20,8 +20,7 @@
                   </div>
                 </div>
               </div>
-              <p class="px-2 mt-4 text-gray-600">Don't have an account? <router-link to="/client/register" class="text-indigo-500">Register</router-link></p>
-              <button type="submit" class="bg-black text-white px-8 py-2 rounded-full">Sign in</button>
+              <button type="submit" class="bg-black text-white px-8 py-2 rounded-full">Log in</button>
             </form>
           </div>
         </div>
