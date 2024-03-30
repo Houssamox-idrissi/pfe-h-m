@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="">
         <header>
             <div>
                 <!-- Admin Layout -->
@@ -94,6 +94,92 @@
                                                 class="ml-1 duration-300 opacity-100 pointer-events-none ease">Brands</span>
                                         </router-link>
                                     </li>
+
+                                    <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/exam"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span
+                                                class="ml-1 duration-300 opacity-100 pointer-events-none ease">Eye Exam</span>
+                                        </router-link>
+                                    </li>
+
+                                    <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/prescription"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span
+                                                class="ml-1 duration-300 opacity-100 pointer-events-none ease">Prescription</span>
+                                        </router-link>
+                                    </li>
+                                    <!-- <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/VisionNeed"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Vision
+                                                Need</span>
+                                        </router-link>
+                                    </li>
+                                    <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/LensPerformance"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Lens
+                                                Performance</span>
+                                        </router-link>
+                                    </li>
+                                    <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/LensType"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Lens
+                                                Type</span>
+                                        </router-link>
+                                    </li>
+                                    <li class="mt-0.5 w-full">
+                                        <router-link to="/admin/lensThickness"
+                                            class="dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors">
+                                            <div
+                                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M64 32C28.7 32 0 60.7 0 96V256 416c0 35.3 28.7 64 64 64H192c70.7 0 128-57.3 128-128c0-46.5-24.8-87.3-62-109.7c18.7-22.3 30-51 30-82.3c0-70.7-57.3-128-128-128H64zm96 192H64V96h96c35.3 0 64 28.7 64 64s-28.7 64-64 64zM64 288h96 32c35.3 0 64 28.7 64 64s-28.7 64-64 64H64V288z" />
+                                                </svg>
+                                            </div>
+                                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Lens
+                                                Thickness</span>
+                                        </router-link>
+                                    </li> -->
                                 </ul>
                             </div>
                         </aside>

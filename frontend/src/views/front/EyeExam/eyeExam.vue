@@ -1,27 +1,31 @@
 <template>
   <navbar />
   <br><br><br>
-  
+
   <form @submit.prevent="submitAppointment" class="bg-white shadow-md rounded px-4 pt-4 pb-6 mb-2 flex flex-col my-2">
     <h1 class="text-4xl text-black font-medium mb-4 capitalize"
-            style="font-family: 'Arial Black', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.4);text-align: center;">
-    Optician Appointment
-  </h1>
-          <br>
+      style="font-family: 'Minerva-modern', sans-serif; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);text-align: center;">
+      Optician Appointment
+    </h1>
+    <br>
     <div class="-mx-3 px-5 md:flex mb-6">
       <!-- First Name Input -->
       <div class="md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
           First Name
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" v-model="firstName" type="text" placeholder="FirstName">
+        <input
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-4 mb-3"
+          v-model="firstName" type="text" placeholder="FirstName">
       </div>
       <!-- Last Name Input -->
       <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
           Last Name
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" v-model="lastName" type="text" placeholder="LastName" required>
+        <input
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-4"
+          v-model="lastName" type="text" placeholder="LastName" required>
       </div>
     </div>
 
@@ -31,14 +35,18 @@
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-email">
           Email
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" v-model="email" type="email" placeholder="Email" required>
+        <input
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-4 mb-3"
+          v-model="email" type="email" placeholder="Email" required>
       </div>
       <!-- Phone Input -->
       <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-phone">
           Phone
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" v-model="phone" type="tel" placeholder="Phone" required>
+        <input
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-4"
+          v-model="phone" type="tel" placeholder="Phone" required>
       </div>
     </div>
 
@@ -48,23 +56,27 @@
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-date">
           Date
         </label>
-        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" v-model="appointmentDatetime" type="datetime-local" placeholder="Date" aria-required="">
+        <input
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-4"
+          v-model="appointmentDatetime" type="datetime-local" placeholder="Date" aria-required="">
       </div>
       <!-- Message Input -->
       <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-message">
           Message
         </label>
-        <textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" v-model="message" placeholder="Type your message here..."></textarea>
+        <textarea
+          class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-secondary rounded py-3 px-2"
+          v-model="message" placeholder="Type your message here..."></textarea>
       </div>
     </div>
-    <div class="md:w-1/3 px-5 mb-6 md:mb-0">
-      <button type="submit" class="py-2 px-4 rounded-lg text-white hover:bg-green-500 focus:outline-none focus:bg-green-500 transition duration-300 btn btn-info ">Submit Appointment</button>
-      </div>
+    <div class="md:w-1/3 px-5 mb-6 md:mb-0"><br>
+      <button type="submit" class="py-2 px-4 rounded-full text-white bg-black uppercase ">Submit Appointment</button>
+    </div>
     <!-- Submit Button -->
-   
+
   </form>
-  
+
   <Footer></Footer>
 </template>
 
@@ -81,7 +93,7 @@ export default {
   data() {
     return {
       firstName: '',
-      lastName:'',
+      lastName: '',
       email: '',
       phone: '',
       appointmentDatetime: '',
@@ -93,7 +105,7 @@ export default {
       const token = localStorage.getItem('jwt_token');
       const requestData = {
         firstName: this.firstName,
-        lastName:this.lastName,
+        lastName: this.lastName,
         email: this.email,
         phone: this.phone,
         appointment_datetime: this.appointmentDatetime,
@@ -102,15 +114,15 @@ export default {
 
       axios.post('http://127.0.0.1:8000/api/appointments', requestData, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         }
       })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
   }
 };

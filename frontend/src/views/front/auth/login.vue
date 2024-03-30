@@ -11,11 +11,11 @@
           <br>
           <form @submit.prevent="login" class="space-y-4  md:space-y-6">
             <input type="email" v-model="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="E-mail address" required>
             <br>
             <input type="password" v-model="password" placeholder="Password"
-              class="px-5 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="px-5 bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required>
             <div class="flex items-center justify-between">
               <div class="flex items-start">
@@ -33,7 +33,7 @@
                 class="text-indigo-500">Register</router-link>
             </p>
             <button type="submit"
-              class="px-4 py-2 text-white transition duration-300 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-500 btn btn-info">Sign
+              class="bg-black text-white px-8 py-2 rounded-full">Sign
               in</button>
           </form>
         </div>

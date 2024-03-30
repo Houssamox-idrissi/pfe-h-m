@@ -1,13 +1,18 @@
 
 <?php
 
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EyeexamController;
 use App\Http\Controllers\GlasseController;
+use App\Http\Controllers\LenseController;
+use App\Http\Controllers\LensesController;
+use App\Http\Controllers\LensPerformanceController;
+use App\Http\Controllers\LensThicknessController;
+use App\Http\Controllers\LensTypeController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\VisionNeedController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/appointments', [EyeexamController::class,'HomeExam']);
+Route::delete('/appointments/{appointmentId}/delete', [EyeexamController::class,'destroy']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -55,6 +63,7 @@ Route::delete('/types/{id}/delete', [TypeController::class, 'deleteType']);
 
 // Glasses
 Route::get('/glasses', [GlasseController::class, 'homeglasses']);
+Route::get('/glasses/{id}/details', [GlasseController::class, 'detailGlasses']);
 Route::post('/glasses', [GlasseController::class, 'storeglasses']);
 Route::get('/glasses/{id}/edit', [GlasseController::class, 'editglasses']);
 Route::put('/glasses/{id}/update', [GlasseController::class, 'updateglasses']);

@@ -3,7 +3,7 @@
     <!-- Navbar -->
 
 
-    <div class="px-2">
+    <div>
       <navbar />
       <div class="bg-center bg-no-repeat bg-cover py-36 ot">
         <div class="container">
@@ -54,24 +54,25 @@
       <!-- ./features -->
       <!-- categories -->
       <div class="container py-16">
-        <h2 class=" text-center mb-4 text-3xl font-medium text-black capitalize font-lighter">Our Top Picks</h2>
+        <h2 class=" mb-4 px-8 text-slate-600 text" style="font: 32px Minerva Modern, sans-serif;">Our Top Picks</h2>
+
         <div class="grid grid-cols-4 gap-3 ">
 
-          <div v-for="(glasses, index) in glassesList" :key="index" data-aos="zoom-in"
+          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index" data-aos="zoom-in"
             class="bg-gray-50 py-16 relative overflow-hidden group rounded-sm">
             <img :src="'http://127.0.0.1:8000/storage' + glasses.image.replace('public', '')" :alt="glasses.name"
               class="w-full transition-transform transform-glasses hover:scale-105">
           </div>
 
-          <div v-for="(glasses, index) in glassesList" :key="index"
+          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index"
             class="bg relative overflow-hidden group rounded-sm ">
-            <router-link to="" class="text-gray-800 text-sm font-bold">
+            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-800 text-sm font-bold">
               {{ glasses.brand.name }}
             </router-link><br>
-            <router-link to="" class="text-gray-400 text-xs">
+            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-400 text-xs">
               {{ glasses.Model }}
             </router-link>
-            <div class="mt-2 text-xs text-gray-800 font-semibold ">
+            <div  class="mt-2 text-xs text-gray-800 font-semibold ">
               From {{ glasses.Price }}$
             </div>
           </div>
@@ -89,22 +90,22 @@
 
       <!-- new arrival -->
       <div class="container py-16">
-        <h2 class=" text-center mb-4 text-3xl font-medium text-black capitalize font-lighter">Designer Sale:<br>
-Get 60% OFF! </h2>
+        <h2 class=" mb-4 px-8 text-slate-600" style="font: 32px Minerva-modern, sans-serif;">Designer Sale:<br>
+          Get 60% off! </h2>
         <div class="grid grid-cols-4 gap-3 ">
 
-          <div v-for="(glasses, index) in glassesList" :key="index" data-aos="zoom-in"
+          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index" data-aos="zoom-in"
             class="bg-gray-50 py-16 relative overflow-hidden group rounded-sm">
             <img :src="'http://127.0.0.1:8000/storage' + glasses.image.replace('public', '')" :alt="glasses.name"
               class="w-full transition-transform transform-glasses hover:scale-105">
           </div>
 
-          <div v-for="(glasses, index) in glassesList" :key="index"
+          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index"
             class="bg relative overflow-hidden group rounded-sm ">
-            <router-link to="" class="text-gray-800 text-sm font-bold">
+            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-800 text-sm font-bold">
               {{ glasses.brand.name }}
             </router-link><br>
-            <router-link to="" class="text-gray-400 text-xs">
+            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-400 text-xs">
               {{ glasses.Model }}
             </router-link>
             <div class="mt-2 text-xs text-gray-800 font-semibold ">
@@ -161,10 +162,10 @@ export default {
   },
 
   computed: {
-        filteredGlassesList() {
-            return this.glassesList.filter(glasses => glasses.id >6);
-        }
-    },
+    filteredGlassesList() {
+      return this.glassesList.filter(glasses => glasses.id > 6);
+    }
+  },
 
   name: 'Home',
   components: {
@@ -189,8 +190,5 @@ export default {
   background-image: url('@/assets/home.png');
 }
 
-.font-lighter {
-  font-family: '', sans-rif;
-  font-weight: 10;
-}
+
 </style>

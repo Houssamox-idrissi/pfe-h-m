@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class EyeexamController extends Controller
 {
+
+    public function HomeExam(){
+        $eyeExam = Eyeexam::all();
+        return response()->json($eyeExam);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -21,5 +27,10 @@ class EyeexamController extends Controller
         Eyeexam::create($request->all());
 
         return response()->json(['message' => 'Appointment created successfully'], 201);
+    }
+
+    public function destroy( Eyeexam $appointmentId){
+        $appointmentId->delete();
+        return response()->json(null, 204);
     }
 }

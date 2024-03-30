@@ -17,9 +17,8 @@ import MenSunglassesClient from '../views/front/Sunglasses/MenSunglasses.vue'
 import WomenSunglassesClient from '../views/front/Sunglasses/WomenSunglasses.vue'
 import KidsSunglassesClient from '../views/front/Sunglasses/KidsSunglasses.vue'
 
-import BrandsClient from '../views/front/brands/brands.vue'
-import BrdGlasseClient from '../views/front/brands/brandsGlasses.vue'
 import ExamClient from '../views/front/EyeExam/eyeExam.vue'
+import ExamView from '../views/adminPanel/eyeExam/exam.vue'
 
 // admin panel
 import CategoryView from '../views/adminPanel/categories/view.vue'
@@ -31,12 +30,25 @@ import CreateBView from '../views/adminPanel/brands/createb.vue'
 import EditBView from '../views/adminPanel/brands/editb.vue'
 
 import TypeView from '../views/adminPanel/Types/indexType.vue'
-import TypeCreateView from '../views/adminPanel/Types/createy.vue'
 import TypeEditView from '../views/adminPanel/Types/edity.vue'
+import TypeCreateView from '../views/adminPanel/Types/createy.vue'
 
 import GlasseView from '../views/adminPanel/glasses/indexGlasse.vue'
 import GlasseCreateView from '../views/adminPanel/glasses/createg.vue'
 import GlaView from '../views/adminPanel/glasses/editg.vue'
+
+
+// BrandsGlasses
+import allBrandsClient from '@/views/front/BrandsGlasses/allBrands.vue'
+import pradaClient from '@/views/front/BrandsGlasses/prada.vue'
+import rayBanClient from '@/views/front/BrandsGlasses/rayBan.vue'
+import armaniClient from '@/views/front/BrandsGlasses/armani.vue'
+
+
+
+// lenses
+import PaymentClient from '@/views/front/Lenses/payment/payment.vue'
+import DetailClient from '@/views/front/GlaDetail/glassesDet.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -85,8 +97,7 @@ const router = createRouter({
           component: TypeView
         },
         {
-          path: 'type/create',
-          name: 'TypeCreate',
+          path: 'createType/create',
           component: TypeCreateView
         },
         {
@@ -110,6 +121,15 @@ const router = createRouter({
           name: 'GlasseEdit',
           component: GlaView
         },
+        // eye exam
+        {
+          path: 'exam',
+          name: 'exam',
+          component: ExamView
+        },
+
+
+      
       ],
       meta: { layout: 'admin' }
     },
@@ -134,6 +154,9 @@ const router = createRouter({
           name:'home',
           component:HomeClient
         },
+
+
+        // Eyeglasses
         {
           path: 'eyeglasses',
           name:'eyeglasses',
@@ -154,6 +177,7 @@ const router = createRouter({
           name:'kidsEyeglasses',
           component:KidsEyeglassesClient
         },
+        // Sunglasses
         {
           path: 'sunglasses',
           name:'sunglasses',
@@ -174,21 +198,53 @@ const router = createRouter({
           name:'kidsSunglasses',
           component:KidsSunglassesClient
         },
+
+        // Brands
         {
-          path: 'brands',
-          name:'brands',
-          component:BrandsClient
+          path: 'allBrands',
+          name:'allBrands',
+          component:allBrandsClient
         },
         {
-          path: 'brandsGlasses',
-          name:'brandsGlasses',
-          component:BrdGlasseClient
+          path: 'prada',
+          name:'prada',
+          component:pradaClient
         },
+        {
+          path: 'rayBan',
+          name:'rayBan',
+          component:rayBanClient
+        },
+        {
+          path: 'armani',
+          name:'armani',
+          component:armaniClient
+        },
+        // 
         {
           path: 'eyeExam',
           name:'eyeExam',
           component:ExamClient
         },
+        {
+          path:'glasses/:id/details',
+          name : 'details',
+          component : DetailClient
+        },
+        {
+          path:'PaymentFrame',
+          name : 'Payment',
+          component : PaymentClient
+        },
+
+
+
+
+        // {
+        //   path: '/lens-insertion/:glassesId', // Define the path with a parameter for glasses ID
+        //   name: 'LensInsertion', // Unique name for the route
+        //   component: LensInsertion // Specify the LensInsertion component
+        // },
         // Other routes...
       ],
       meta: { layout: 'client' }

@@ -13,6 +13,14 @@ class GlasseController extends Controller
         return response()->json($glasses);
     }
 
+    public function detailGlasses($id){
+        $glasses = Glasse::with('category', 'type', 'brand')->find($id);
+        if (!$glasses) {
+            return response()->json(['error' => 'Glasses not found'], 404);
+        }
+        return response()->json($glasses);
+    }
+
     public function storeglasses(Request $request)
     {
         $request->validate([

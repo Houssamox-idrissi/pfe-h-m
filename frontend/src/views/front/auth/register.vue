@@ -13,19 +13,19 @@
           <br>
           <form @submit.prevent="register" class="space-y-4 md:space-y-6">
             <input type="text" v-model="name" placeholder="Name" required
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              class="bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                <br>
             <input type="email" v-model="email" placeholder="Email" required
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              class="bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                <br>
             <input type="password" v-model="password" placeholder="Password"
-              class="px-5 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="px-5 bg-gray-50 border border-secondary text-gray-900 sm:text-sm rounded-lg "
               required>
             <div class="flex items-center justify-between">
               <div class="flex items-start">
                 <div class="flex items-center h-5">
                   <input id="remember" aria-describedby="remember" type="checkbox"
-                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    class="w-4 h-4 border border-secondary rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                     required>
                 </div>
                 <div class="ml-3 text-sm">
@@ -37,7 +37,7 @@
                 class="text-indigo-500">Log in</router-link>
             </p>
             <button type="submit"
-              class="px-4 py-2 text-white transition duration-300 rounded-lg hover:bg-green-500 focus:outline-none focus:bg-green-500 btn btn-info">Sign
+              class="bg-black text-white px-8 py-2 rounded-full">Sign
               up</button>
           </form>
         </div>
