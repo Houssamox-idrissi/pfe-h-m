@@ -1,19 +1,38 @@
 <template>
-    <div>
-      <h1>Create Category</h1>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title font-bold text-3xl text-center text-slate-600" style="font-family: 'Minerva-modern';">Create Category</h1>
+      <br>
       <form @submit.prevent="saveCategory">
         <div class="mb-3">
-          <label for="categoryName" class="form-label">Category Name</label>
+          <label for="categoryName" class="form-label" style="font-family: 'Minerva-modern';">Category Name</label>
           <input type="text" class="form-control" id="categoryName" v-model="model.name" required>
         </div>
         <div class="mb-3">
-          <label for="categoryImage" class="form-label">Category Image</label>
+          <label for="categoryImage" class="form-label" style="font-family: 'Minerva-modern';">Category Image</label>
           <input type="file" class="form-control" id="categoryImage" @change="handleImageChange" accept="image/*" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="bg-black px-4 py-2 rounded-full text-white">Submit</button>
       </form>
     </div>
-  </template>
+  </div>
+</template>
+
+<style>
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+</style>
+
     
   <script>
   import axios from 'axios';

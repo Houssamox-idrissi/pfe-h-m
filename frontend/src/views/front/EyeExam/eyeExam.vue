@@ -2,9 +2,9 @@
   <navbar />
   <br><br><br>
 
-  <form @submit.prevent="submitAppointment" class="bg-white shadow-md rounded px-4 pt-4 pb-6 mb-2 flex flex-col my-2">
+  <form @submit.prevent="submitAppointment" class="bg-transparent shadow-md rounded px-4 pt-4 pb-6 mb-2 flex flex-col my-2">
     <h1 class="text-4xl text-black font-medium mb-4 capitalize"
-      style="font-family: 'Minerva-modern', sans-serif; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);text-align: center;">
+      style="font-family: cursive;', sans-serif; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);text-align: center;">
       Optician Appointment
     </h1>
     <br>
@@ -71,7 +71,7 @@
       </div>
     </div>
     <div class="md:w-1/3 px-5 mb-6 md:mb-0"><br>
-      <button type="submit" class="py-2 px-4 rounded-full text-white bg-black uppercase ">Submit Appointment</button>
+      <button type="submit" class="py-2 px-4 rounded-full text-white bg-black uppercase  ">Submit Appointment</button>
     </div>
     <!-- Submit Button -->
 

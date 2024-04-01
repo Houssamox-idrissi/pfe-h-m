@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('glasses_id');
-            $table->foreign('glasses_id')->references('id')->on('glasses')->onDelete('cascade');
             $table->string('image');
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

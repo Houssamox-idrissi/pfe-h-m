@@ -1,23 +1,39 @@
 <template>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <h1 class="mb-4">Create Brand</h1>
-          <form @submit.prevent="saveBrand">
-            <div class="mb-3">
-              <label for="brandName" class="form-label">Brand Name</label>
-              <input type="text" class="form-control" id="brandName" v-model="model.name" required>
-            </div>
-            <div class="mb-3">
-              <label for="brandImage" class="form-label">Category Image</label>
-              <input type="file" class="form-control" id="brandImage" @change="handleImageChange" accept="image/*" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title font-bold text-3xl text-center text-slate-600" style="font-family: 'Minerva-modern';">Create Brand</h1>
+      <form @submit.prevent="saveBrand">
+        <div class="mb-3">
+          <label for="brandName" class="form-label" style="font-family: 'Minerva-modern';">Brand Name</label>
+          <input type="text" class="form-control" id="brandName" v-model="model.name" required>
         </div>
-      </div>
+        <div class="mb-3">
+          <label for="brandImage" class="form-label" style="font-family: 'Minerva-modern';">Brand Image</label>
+          <input type="file" class="form-control" id="brandImage" @change="handleImageChange" accept="image/*" required>
+        </div>
+        <button type="submit" class="bg-black px-4 py-2 rounded-full text-white">Submit</button>
+      </form>
     </div>
-  </template>
+  </div>
+</template>
+
+<style>
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+
+</style>
+
   
   <script>
   import axios from 'axios';

@@ -7,8 +7,8 @@
       <navbar />
       <div class="bg-center bg-no-repeat bg-cover py-36 ot">
         <div class="container">
-          <h1 class="mb-4 text-3xl font-medium text-white capitalize"
-            style="font-family: 'Arial Black', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.4);">
+          <h1 class="mb-4 text-4xl font-medium text-white capitalize" data-aos="zoom-in"
+            style="font-family: cursive; text-shadow: 2px 2px 4px rgba(0,0,0,0.4);">
             Our vision for your<br> eye care.
           </h1>
 
@@ -54,25 +54,28 @@
       <!-- ./features -->
       <!-- categories -->
       <div class="container py-16">
-        <h2 class=" mb-4 px-8 text-slate-600 text" style="font: 32px Minerva Modern, sans-serif;">Our Top Picks</h2>
+        <h2 class=" mb-4 px-8 text-slate-600 text"
+          style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+          Our Top Picks</h2>
 
         <div class="grid grid-cols-4 gap-3 ">
 
-          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index" data-aos="zoom-in"
+          <div v-for="(glasses, index) in glassesList.slice(0, 4)" :key="index" data-aos="zoom-in"
             class="bg-gray-50 py-16 relative overflow-hidden group rounded-sm">
             <img :src="'http://127.0.0.1:8000/storage' + glasses.image.replace('public', '')" :alt="glasses.name"
               class="w-full transition-transform transform-glasses hover:scale-105">
           </div>
 
-          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index"
+          <div v-for="(glasses, index) in glassesList.slice(0, 4)" :key="index"
             class="bg relative overflow-hidden group rounded-sm ">
-            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-800 text-sm font-bold">
+            <router-link :to="{ path: '/client/glasses/' + glasses.id + '/details' }"
+              class="text-gray-800 text-sm font-bold">
               {{ glasses.brand.name }}
             </router-link><br>
-            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-400 text-xs">
+            <router-link :to="{ path: '/client/glasses/' + glasses.id + '/details' }" class="text-gray-400 text-xs">
               {{ glasses.Model }}
             </router-link>
-            <div  class="mt-2 text-xs text-gray-800 font-semibold ">
+            <div class="mt-2 text-xs text-gray-800 font-semibold ">
               From {{ glasses.Price }}$
             </div>
           </div>
@@ -90,22 +93,25 @@
 
       <!-- new arrival -->
       <div class="container py-16">
-        <h2 class=" mb-4 px-8 text-slate-600" style="font: 32px Minerva-modern, sans-serif;">Designer Sale:<br>
+        <h2 class=" mb-4 px-8 text-slate-600"
+          style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+          Designer Sale:<br>
           Get 60% off! </h2>
         <div class="grid grid-cols-4 gap-3 ">
 
-          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index" data-aos="zoom-in"
+          <div v-for="(glasses, index) in filteredGlassesList.slice(0, 4)" :key="index" data-aos="zoom-in"
             class="bg-gray-50 py-16 relative overflow-hidden group rounded-sm">
             <img :src="'http://127.0.0.1:8000/storage' + glasses.image.replace('public', '')" :alt="glasses.name"
               class="w-full transition-transform transform-glasses hover:scale-105">
           </div>
 
-          <div v-for="(glasses, index) in glassesList.slice(0,4)" :key="index"
+          <div v-for="(glasses, index) in filteredGlassesList.slice(0, 4)" :key="index"
             class="bg relative overflow-hidden group rounded-sm ">
-            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-800 text-sm font-bold">
+            <router-link :to="{ path: '/client/glasses/' + glasses.id + '/details' }"
+              class="text-gray-800 text-sm font-bold">
               {{ glasses.brand.name }}
             </router-link><br>
-            <router-link :to="{path:'/client/glasses/'+ glasses.id + '/details'}" class="text-gray-400 text-xs">
+            <router-link :to="{ path: '/client/glasses/' + glasses.id + '/details' }" class="text-gray-400 text-xs">
               {{ glasses.Model }}
             </router-link>
             <div class="mt-2 text-xs text-gray-800 font-semibold ">
@@ -141,7 +147,7 @@ export default {
     setTimeout(() => {
       AOS.init({
       });
-    }, 1500);
+    }, 450);
   },
   methods: {
     getGlasses() {
@@ -163,7 +169,7 @@ export default {
 
   computed: {
     filteredGlassesList() {
-      return this.glassesList.filter(glasses => glasses.id > 6);
+      return this.glassesList.filter(glasses => glasses.id > 16);
     }
   },
 
@@ -189,6 +195,4 @@ export default {
 .ot {
   background-image: url('@/assets/home.png');
 }
-
-
 </style>

@@ -13,6 +13,6 @@ class LensType extends Model
 
     public function lenses()
     {
-        return $this->hasMany(Lenses::class);
+        return $this->hasMany(Lense::class);
     }
 }

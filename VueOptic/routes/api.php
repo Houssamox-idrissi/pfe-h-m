@@ -7,6 +7,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EyeexamController;
 use App\Http\Controllers\GlasseController;
+use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,14 +41,17 @@ Route::middleware('auth.jwt')->group(function () {
 });
 
 Route::middleware(['admin'])->group(function () {
-    // Category
-Route::get('/categories', [CategoryController::class, 'homecategory']);
-Route::post('/categories', [CategoryController::class, 'storecat']);
-Route::get('/categories/{id}/edit', [CategoryController::class, 'editcat']);
-Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory']);
-Route::delete('/categories/{id}/delete', [CategoryController::class, 'deletecat']);
+    
 });
+Route::apiResource('prescriptions', PrescriptionController::class);
 
+
+   // Category
+   Route::get('/categories', [CategoryController::class, 'homecategory']);
+   Route::post('/categories', [CategoryController::class, 'storecat']);
+   Route::get('/categories/{id}/edit', [CategoryController::class, 'editcat']);
+   Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory']);
+   Route::delete('/categories/{id}/delete', [CategoryController::class, 'deletecat']);
 
 // Brand
 Route::get('/brand/form', [BrandController::class, 'brandForm']);

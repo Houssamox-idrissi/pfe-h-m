@@ -1,19 +1,37 @@
 <template>
-  <div>
-    <h1>Create Type</h1>
-    <form @submit.prevent="saveType">
-      <div class="mb-3">
-        <label for="typeName" class="form-label">Type Name</label>
-        <input type="text" class="form-control" id="typeName" v-model="model.name" required>
-      </div>
-      <div class="mb-3">
-        <label for="typeImage" class="form-label">Type Image</label>
-        <input type="file" class="form-control" id="typeImage" @change="handleImageChange" accept="image/*" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title font-bold text-3xl text-center text-slate-600" style="font-family: 'Minerva-modern';">Create Type</h1>
+      <form @submit.prevent="saveType">
+        <div class="mb-3">
+          <label for="typeName" class="form-label" style="font-family: 'Minerva-modern';">Type Name</label>
+          <input type="text" class="form-control" id="typeName" v-model="model.name" required>
+        </div>
+        <div class="mb-3">
+          <label for="typeImage" class="form-label" style="font-family: 'Minerva-modern';">Type Image</label>
+          <input type="file" class="form-control" id="typeImage" @change="handleImageChange" accept="image/*" required>
+        </div>
+        <button type="submit" class="bg-black px-4 py-2 rounded-full text-white">Submit</button>
+      </form>
+    </div>
   </div>
 </template>
+
+<style>
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+</style>
+
 
 <script>
 import axios from 'axios';

@@ -1,230 +1,110 @@
 <template>
     <div>
-        <h2 v-if="step === 1">Step 1: Select Vision Need</h2>
-        <select v-if="step === 1" v-model="visionNeed">
-            <option value="">Select Vision Need</option>
-            <option v-for="need in visionNeeds" :key="need.id" :value="need.id">{{ need.name }}</option>
-        </select>
-        <button v-if="step === 1 && visionNeed" @click="storeVisionNeed">Next</button>
+        <navbar />
+        <div class="flex px-16  mt-12">
+            <div class="bg-gray-50 w-10/12" v-if="glasses">
+                <img :src="'http://127.0.0.1:8000/storage' + glasses.brand.image.replace('public', '')"
+                    :alt="glasses.name" class="w-28 bottom-0">
+                <img :src="'http://127.0.0.1:8000/storage' + glasses.image.replace('public', '')" :alt="glasses.name"
+                    class="w-6/12 mx-auto">
+            </div>
+        
+            <div class="px-16 mt-2" v-if="glasses">
+                <div class="card ">
+                    <div class="card-body">
+                        <h1 class="card-title font-bold text-3xl text-center text-slate-600 font-minerva" style="font-family: cursive;">Prescription</h1>
+                        <form @submit.prevent="submitForm">
+                            <div class="mb-3">
+                                <label for="prescriptionImage" class="form-label font-minerva">Prescription
+                                    Image</label>
+                                <input type="file" class="form-control" @change="handleImageChange" accept="image/*"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label font-minerva">Have us call your doctor <span class="text-xs font-semibold"> (optional)</span></label>
+                                <input type="tel" class="form-control" v-model="prescription.phone" pattern="[0-9]*" placeholder="Doctor phone ">
+                            </div>
+                            <button type="submit" class="bg-black px-4 py-2 rounded-full text-white">Next</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <h2 class="text-slate-600 text-lg font-bold uppercase mt-2">{{ glasses.brand.name }}</h2>
+                <p class="text-xs text-gray-500 font-semibold">{{ glasses.Model }}</p>
+                <p class="font-bold">Size <span class="font-bold uppercase text-black"
+                        style="margin-left: 110px;font:13px Minerva Modern, sans-serif;">{{ glasses.size }}</span></p>
+                <p class="font-bold uppercase">Frame<span class="font-bold text-black"
+                        style="margin-left: 85px;font:13px Minerva Modern, sans-serif;">${{ glasses.Price }}</span></p>
+                <div class="mt-2"></div>
 
-        <h2 v-if="step === 2">Step 2: Upload Prescription Image</h2>
-        <input type="file" v-if="step === 2" @change="uploadPrescriptionImage">
-        <button v-if="step === 2 && image" @click="nextStep(3)">Next</button>
+            </div>
+        </div>
 
-        <h2 v-if="step === 3">Step 3: Select Lens Type</h2>
-        <select v-if="step === 3" v-model="lensType">
-            <option value="">Select Lens Type</option>
-            <option v-for="type in lensTypes" :key="type.id" :value="type.id">{{ type.name }}</option>
-        </select>
-        <button v-if="step === 3 && lensType" @click="storeLensType">Next</button>
-
-        <h2 v-if="step === 4">Step 4: Select Lens Performance</h2>
-        <select v-if="step === 4" v-model="lensPerformance">
-            <option value="">Select Lens Performance</option>
-            <option v-for="performance in lensPerformances" :key="performance.id" :value="performance.id">{{
-            performance.name }}</option>
-        </select>
-        <button v-if="step === 4 && lensPerformance" @click="storeLensPerformance">Next</button>
-
-        <h2 v-if="step === 5">Step 5: Select Lens Thickness</h2>
-        <select v-if="step === 5" v-model="lensThickness">
-            <option value="">Select Lens Thickness</option>
-            <option v-for="thickness in lensThicknesses" :key="thickness.id" :value="thickness.id">{{ thickness.name }}
-            </option>
-        </select>
-        <button v-if="step === 5 && lensThickness" @click="createLens">Create Lens</button>
-
-        <!-- Rest of the lens selection steps -->
+        <div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Navbar from '@/components/navbar.vue';
+import Footer from '@/components/f.vue';
 
 export default {
+    components: {
+        Navbar,
+        Footer
+    },
     data() {
         return {
-            step: 1,
-            visionNeed: '',
-            lensType: '',
-            lensPerformance: '',
-            lensThickness: '',
-            visionNeeds: [],
-            lensTypes: [],
-            lensPerformances: [],
-            lensThicknesses: [],
-            image: null,
-            selectedGlassesId: null,
-            selectedGlasses: null,
+            prescription: {
+                image: null,
+                phone: ''
+            },
+            glasses: null,
         };
     },
     mounted() {
-        this.selectedGlassesId = this.$route.params.glassesId;
-        this.fetchVisionNeeds();
-        this.fetchLensTypes();
-        this.fetchLensPerformances();
-        this.fetchLensThicknesses();
+        this.getGlassesDetails();
     },
     methods: {
-        fetchVisionNeeds() {
-            axios.get('http://127.0.0.1:8000/api/vision-needs')
-                .then(response => {
-                    this.visionNeeds = response.data;
+        getGlassesDetails() {
+            const glassesId = this.$route.params.glassesId;
+            console.log(glassesId)
+            axios.get(`http://127.0.0.1:8000/api/glasses/${glassesId}/details`)
+                .then(res => {
+                    this.glasses = res.data;
                 })
                 .catch(error => {
-                    console.error('Error fetching vision needs:', error);
-                });
-        },
-        fetchLensTypes() {
-            axios.get('http://127.0.0.1:8000/api/TypeHome')
-                .then(response => {
-                    this.lensTypes = response.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching lens types:', error);
-                });
-        },
-        fetchLensPerformances() {
-            axios.get('http://127.0.0.1:8000/api/PerformanceHome')
-                .then(response => {
-                    this.lensPerformances = response.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching lens performances:', error);
-                });
-        },
-        fetchLensThicknesses() {
-            axios.get('http://127.0.0.1:8000/api/ThiknessHome')
-                .then(response => {
-                    this.lensThicknesses = response.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching lens thicknesses:', error);
-                });
-        },
-        storeVisionNeed() {
-            if (!this.selectedGlassesId) {
-                console.error('No glasses selected.');
-                return; // Stop execution if no glasses are selected
-            }
-
-            axios.post('http://127.0.0.1:8000/api/lenses/vision-need', {
-                glasses_id: this.selectedGlassesId,
-                vision_need_id: this.visionNeed
-            })
-                .then(response => {
-                    console.log(response.data);
-                    this.nextStep(2); // Move to the next step after successfully storing vision need
-                })
-                .catch(error => {
-                    console.error('Error storing vision need:', error);
+                    console.error('Error fetching glasses details:', error);
                 });
         },
 
-        uploadPrescriptionImage(event) {
-            this.image = event.target.files[0];
-            console.log("prescription inserted")
+        handleImageChange(event) {
+            this.prescription.image = event.target.files[0];
         },
-
-
-
-        storeLensType() {
-            if (!this.selectedGlassesId) {
-                console.error('No glasses selected.');
-                return; // Stop execution if no glasses are selected
-            }
-
-            axios.post('http://127.0.0.1:8000/api/lenses/lens-type', {
-                glasses_id: this.selectedGlassesId,
-                lens_type_id: this.lensType
-            })
-                .then(response => {
-                    console.log(response.data);
-                    this.nextStep(4);
-                })
-                .catch(error => {
-                    console.error('Error storing lens type:', error);
-                });
-        },
-
-
-        storeLensPerformance() {
-            if (!this.selectedGlassesId) {
-                console.error('No glasses selected.');
-                return; // Stop execution if no glasses are selected
-            }
-
-            axios.post('http://127.0.0.1:8000/api/lenses/lens-performance', {
-                glasses_id: this.selectedGlassesId, // Pass the selectedGlassesId
-                lens_performance_id: this.lensPerformance
-            })
-                .then(response => {
-                    console.log(response.data);
-                    this.nextStep(5); // Move to the next step after successfully storing lens performance
-                })
-                .catch(error => {
-                    console.error('Error storing lens performance:', error);
-                });
-        },
-
-        storeLensThickness() {
-            if (!this.selectedGlassesId) {
-                console.error('No glasses selected.');
-                return; // Stop execution if no glasses are selected
-            }
-
-            axios.post('http://127.0.0.1:8000/api/lenses/lens-thickness', {
-                glasses_id: this.selectedGlassesId, // Pass the selectedGlassesId
-                lens_thickness_id: this.lensThickness
-            })
-                .then(response => {
-                    console.log(response.data);
-                    this.nextStep(5); // Move to the next step after successfully storing lens thickness
-                })
-                .catch(error => {
-                    console.error('Error storing lens thickness:', error);
-                });
-        },
-
-        createLens() {
+        submitForm() {
             const formData = new FormData();
-            formData.append('glasses_id', this.selectedGlassesId);
-            formData.append('vision_need_id', this.visionNeed);
-            formData.append('image', this.image);
-            formData.append('lens_type_id', this.lensType);
-            formData.append('lens_thickness_id', this.lensThickness);
-            formData.append('lens_performance_id', this.lensPerformance);
+            formData.append('image', this.prescription.image);
+            formData.append('phone', this.prescription.phone);
 
-
-            axios.post('http://127.0.0.1:8000/api/lenses/storeLens', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
+            axios.post('http://127.0.0.1:8000/api/prescriptions', formData)
                 .then(response => {
-                    console.log(response.data);
-                    // Resetting data and navigating to another page
-                    this.resetData();
-                    this.$router.push('/client/home');
+                    console.log('Prescription saved successfully:', response.data);
+                    this.resetForm();
                 })
                 .catch(error => {
-                    console.error('Error creating lens:', error);
+                    console.error('Error saving prescription:', error);
                 });
+                this.$router.push('/client/PaymentFrame')
         },
-
-        nextStep(step) {
-            this.step = step;
-        },
-        resetData() {
-            this.step = 1;
-            this.visionNeed = '';
-            this.lensType = '';
-            this.lensPerformance = '';
-            this.lensThickness = '';
-            this.prescriptionImage = null;
-            this.selectedGlassesId = null;
-            this.selectedGlasses = null;
+        resetForm() {
+            this.prescription.image = null;
+            this.prescription.phone = '';
         }
     }
+
 };
 </script>

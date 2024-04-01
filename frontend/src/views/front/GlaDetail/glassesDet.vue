@@ -16,9 +16,12 @@
             style="margin-left: 110px;font:13px Minerva Modern, sans-serif;">{{ glasses.size }}</span></p>
         <p class="font-bold uppercase">Frame<span class="font-bold text-black"
             style="margin-left: 85px;font:13px Minerva Modern, sans-serif;">${{ glasses.Price }}</span></p>
-        <button @click="ShopFrame" class="bg-black text-white py-2 px-8 rounded-full">SHOP FRAME</button>
-        <div class="mt-2"></div>
-        <button @click="selectLenses" class="bg-black text-white py-2 px-8 rounded-full">SELECT LENSES</button>
+        <div class="mr-2">
+          <button @click="ShopFrame" class="bg-black text-white py-2 px-8 rounded-full">SHOP FRAME</button>
+          <div class="mt-2"></div>
+          <button @click="selectLenses" class="bg-black text-white py-3 px-8 rounded-full">FRAME&LENSES</button>
+        </div>
+
 
 
       </div>
@@ -63,21 +66,18 @@ export default {
 
 
     ShopFrame() {
-        this.$router.push({
-          name: 'Payment',
-        });
+      this.$router.push({
+        name: 'Payment',
+      });
     },
 
     selectLenses() {
       if (this.glasses && this.glasses.id) {
-        // Set the selected glasses ID before navigating to the lens insertion page
         this.selectedGlassesId = this.glasses.id;
-        console.log(this.selectedGlassesId)
-        // Navigate to the lens insertion page
         this.$router.push({
           name: 'LensInsertion',
           params: {
-            glassesId: this.selectedGlassesId // Pass the glassesId as a parameter
+            glassesId: this.selectedGlassesId
           }
         });
       } else {

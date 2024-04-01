@@ -42,7 +42,7 @@
                     type="text" placeholder="Full Name">
             </div>
 
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
+            <button @click="done" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
                 Pay Now
             </button>
         </div>
@@ -58,5 +58,11 @@ export default {
         navbar,
         Footer
     },
+
+    methods:{
+        done(){
+            this.$router.push('/client/home')
+        }
+    }
 }
 </script>

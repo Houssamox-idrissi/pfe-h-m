@@ -1,56 +1,66 @@
 <template>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="mb-4" style="color: #007bff; font-family: 'Arial', sans-serif;">Create Glasses</h1>
-              <form @submit.prevent="saveGlasses">
-                <div class="mb-3">
-                  <label for="glassesModel" class="form-label">Glasses Model</label>
-                  <input type="text" class="form-control" id="glassesModel" v-model="model.Model" required>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesPrice" class="form-label">Glasses Price</label>
-                  <input type="number" class="form-control" id="glassesPrice" v-model="model.Price" required>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesSize" class="form-label">Glasses Size</label>
-                  <input type="text" class="form-control" id="glassesSize" v-model="model.size" required>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesImage" class="form-label">Glasses Image</label>
-                  <input type="file" class="form-control" id="glassesImage" @change="handleImageChange" accept="image/*" required>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesBrand" class="form-label">Brand</label>
-                  <select class="form-select" id="glassesBrand" v-model="model.brand_id" required>
-                    <option disabled value="">Select Brand</option>
-                    <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.name }}</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesType" class="form-label">Type</label>
-                  <select class="form-select" id="glassesType" v-model="model.type_id" required>
-                    <option disabled value="">Select Type</option>
-                    <option v-for="type in types" :key="type.id" :value="type.id">{{ type.name }}</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="glassesCategory" class="form-label">Category</label>
-                  <select class="form-select" id="glassesCategory" v-model="model.category_id" required>
-                    <option disabled value="">Select Category</option>
-                    <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title font-bold text-3xl text-center text-slate-600" style="font-family: 'Minerva-modern';">Create Glasses</h1>
+      <form @submit.prevent="saveGlasses">
+        <div class="mb-3">
+          <label for="glassesModel" class="form-label" style="font-family: 'Minerva-modern';">Glasses Model</label>
+          <input type="text" class="form-control" id="glassesModel" v-model="model.Model" required>
         </div>
-      </div>
+        <div class="mb-3">
+          <label for="glassesPrice" class="form-label" style="font-family: 'Minerva-modern';">Glasses Price</label>
+          <input type="number" class="form-control" id="glassesPrice" v-model="model.Price" required>
+        </div>
+        <div class="mb-3">
+          <label for="glassesSize" class="form-label" style="font-family: 'Minerva-modern';">Glasses Size</label>
+          <input type="text" class="form-control" id="glassesSize" v-model="model.size" required>
+        </div>
+        <div class="mb-3">
+          <label for="glassesImage" class="form-label" style="font-family: 'Minerva-modern';">Glasses Image</label>
+          <input type="file" class="form-control" id="glassesImage" @change="handleImageChange" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+          <label for="glassesBrand" class="form-label" style="font-family: 'Minerva-modern';">Brand</label>
+          <select class="form-select" id="glassesBrand" v-model="model.brand_id" required>
+            <option disabled value="">Select Brand</option>
+            <option v-for="brand in brands" :key="brand.id" :value="brand.id">{{ brand.name }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="glassesType" class="form-label" style="font-family: 'Minerva-modern';">Type</label>
+          <select class="form-select" id="glassesType" v-model="model.type_id" required>
+            <option disabled value="">Select Type</option>
+            <option v-for="type in types" :key="type.id" :value="type.id">{{ type.name }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="glassesCategory" class="form-label" style="font-family: 'Minerva-modern';">Category</label>
+          <select class="form-select" id="glassesCategory" v-model="model.category_id" required>
+            <option disabled value="">Select Category</option>
+            <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
+          </select>
+        </div>
+        <button type="submit" class="bg-black px-4 py-2 rounded-full text-white">Submit</button>
+      </form>
     </div>
-  </template>
+  </div>
+</template>
+
+<style>
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+</style>
+
   
 
 <script>

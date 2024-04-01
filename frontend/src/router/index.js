@@ -39,19 +39,20 @@ import GlasseView from '../views/adminPanel/glasses/indexGlasse.vue'
 import GlasseCreateView from '../views/adminPanel/glasses/createg.vue'
 import GlaView from '../views/adminPanel/glasses/editg.vue'
 
-
 // BrandsGlasses
 import allBrandsClient from '@/views/front/BrandsGlasses/allBrands.vue'
 import pradaClient from '@/views/front/BrandsGlasses/prada.vue'
 import rayBanClient from '@/views/front/BrandsGlasses/rayBan.vue'
 import armaniClient from '@/views/front/BrandsGlasses/armani.vue'
 
-
-
 // lenses
+import LensInsertion from '../views/front/GlaDetail/lensesStore.vue'
 import PaymentClient from '@/views/front/Lenses/payment/payment.vue'
 import DetailClient from '@/views/front/GlaDetail/glassesDet.vue'
 import FirstPageView from '../views/adminLogin/login.vue'
+
+// Prescription 
+import PrescriptionView from '../views/adminPanel/prescription/prescription.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -141,6 +142,11 @@ const router = createRouter({
           path: 'exam',
           name: 'exam',
           component: ExamView
+        },
+        {
+          path: 'prescription',
+          name: 'prescription',
+          component: PrescriptionView
         },
 
 
@@ -252,15 +258,11 @@ const router = createRouter({
           component: PaymentClient
         },
 
-
-
-
-        // {
-        //   path: '/lens-insertion/:glassesId', // Define the path with a parameter for glasses ID
-        //   name: 'LensInsertion', // Unique name for the route
-        //   component: LensInsertion // Specify the LensInsertion component
-        // },
-        // Other routes...
+        {
+          path: 'lens-insertion/:glassesId', 
+          name: 'LensInsertion', 
+          component: LensInsertion 
+        },
       ],
       meta: { layout: 'client' }
     },
